@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navbar{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: sticky;
+    z-index: 100;
+}
+
+.footer{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  position: sticky;
+}
+body{
+    background-color: rgb(224, 224, 224);
+}
+.scaling {
+    animation: rotate 0.5s ease-in-out;
+}
+@keyframes rotate {
+    0% {
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(1);
+      }
+  }
+
+
+  .bgImage{
+    height: 70vh;
+  }
+  .bgImage{
+    height: 70vh;
+  }
+  
+
+    .marginRight{
+      margin-right: 700px;
+    }
+    .marginLeft{
+      margin-left: 700px;
+    }
+
+    @media(max-width: 720px){
+      .marginRight{
+        margin-right: 20;
+      }
+      .marginLeft{
+        margin-left: 20;
+      }
+    }
+  
+  .active-link{
+    color: black;
+  }

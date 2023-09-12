@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { CommentsRef, userr } from '../Firebase'
 import Swal from 'sweetalert2'
 import { TailSpin, ThreeDots } from 'react-loader-spinner'
+import { useNavigate } from 'react-router-dom'
 
 const Comment = ({ id }) => {
 
@@ -10,7 +11,7 @@ const Comment = ({ id }) => {
   const [data, setdata] = useState([])
   const [Loading, setLoading] = useState(false)
   const [reviewLoading, setReviewLoading] = useState(false)
-
+  const history = useNavigate();
 
   
 
@@ -31,7 +32,10 @@ const Comment = ({ id }) => {
         buttons: false,
         timer: 3000,
       })
-      //window.location.reload();
+      setTimeout(function() {
+        window.location.reload();
+      }, 1500); 
+      
     } catch (error) {
       Swal.fire({
         text: error.message,

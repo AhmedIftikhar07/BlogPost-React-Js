@@ -21,6 +21,7 @@ const Navbar = () => {
         });
         localStorage.removeItem('userUID');
         localStorage.removeItem('user');
+        navigate('/')
         setTimeout(function () {
           window.location.reload();
         }, 1000);
@@ -115,21 +116,25 @@ const Navbar = () => {
                   <NavLink style={navLinkStyles}  to={'/about'} href="javascript:void(0)">About US</NavLink>
                 </li>
                 {isLoggedIn ?
-                  <>
-                    <li className="text-gray-50 bg-orange-600 px-2 py-1 rounded-md font-bold transition-all duration-400 hover:bg-orange-700 text-center active:bg-orange-800">
-                      <Link to={'/addblog'} href="javascript:void(0)">Add Blogs</Link>
+                  <><Link to={'/addblog'} href="javascript:void(0)">
+                    <li className="text-gray-50 bg-orange-600 px-2 py-1 mt-6 md:mt-0 rounded-md font-bold transition-all duration-400 hover:bg-orange-700 text-center active:bg-orange-800">
+                      Add Blogs
                     </li>
+                    </Link>
+                    <button onClick={handleLogOut} className=''>
                     <li className="text-gray-50 bg-orange-600 px-2 py-1 rounded-md font-bold transition-all duration-400 hover:bg-orange-700 text-center active:bg-orange-800">
-                      <button onClick={handleLogOut}>Log Out</button>
+                      Log Out
                     </li>
+                    </button>
                     {userr &&
                       <Link to={`/user/${userr.userDocumentId}`}>
                         <li className='w-10 mt-4 md:mt-0 h-10 rounded-full'><img className='w-full h-full rounded-full ' src={userr.image_url} alt="" /></li></Link>}
                   </>
-                  :
-                  <li className="text-gray-50 bg-orange-600 px-2 py-1 rounded-md font-bold transition-all duration-400 hover:bg-orange-700 text-center active:bg-orange-800">
-                    <Link to={"/signup"}>Sign Up</Link>
+                  :<Link to={"/signup"}>
+                  <li className="text-gray-50 bg-orange-600 px-2 py-1 mt-6 md:mt-0 rounded-md font-bold transition-all duration-400 hover:bg-orange-700 text-center active:bg-orange-800">
+                    Sign Up
                   </li>
+                  </Link>
                 }
               </ul>
             </div>
